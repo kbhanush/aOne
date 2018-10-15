@@ -17,6 +17,11 @@ var jwt = require('jwt-simple');
 module.exports = function(app) {
 
         app.post('/user', function(req, res) {
+            console.log("database username: " + dbConfig.user)
+            console.log("database password: " + dbConfig.password)
+            console.log("database connectionstring" + dbConfig.connectString)
+
+
             /* create hash using crypto */
             var crypto = require('crypto'),
                 key = 'supersecretkey';
@@ -90,6 +95,10 @@ module.exports = function(app) {
         }); //-----------end app.post(register)---------------------------------
 
         app.post('/userpass', function(req, res) {
+            console.log("database username: " + dbConfig.user)
+            console.log("database password: " + dbConfig.password)
+            console.log("database connectionstring" + dbConfig.connectString)
+
             /* create hash using crypto */
             var crypto = require('crypto'),
                 key = 'supersecretkey';
@@ -167,6 +176,9 @@ module.exports = function(app) {
 
 
         app.get('/login/:email/:pw', function(req, res, next) {
+            console.log("database username: " + dbConfig.user)
+            console.log("database password: " + dbConfig.password)
+            console.log("database connectionstring" + dbConfig.connectString)
 
             /* ------ encrypt password and then compare against DB -------------*/
             var crypto = require('crypto');
